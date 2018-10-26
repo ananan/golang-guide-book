@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>3.4 Go的http包详解 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "3.4 Go\u7684http\u5305\u8be6\u89e3";
+    var mkdocs_page_input_path = "03.4.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">0.0目录</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.0/">1.0 GO环境配置</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.1/">1.1安装 Go</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.2/">1.2 GOPATH与工作空间</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.3/">1.3 Go 命令</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.4/">1.4 Go开发工具</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.5/">1.5 总结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.0/">2 Go语言基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.1/">2.1 你好，Go</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.2/">2.2 Go基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.3/">2.3 流程和函数</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.4/">2.4 struct类型</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.5/">2.5 面向对象</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.6/">2.6 interface</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.7/">2.7 并发</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.8/">2.8 总结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.0/">3 Web基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.1/">3.1 Web工作方式</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.2/">3.2 Go搭建一个Web服务器</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.3/">3.3 Go如何使得Web工作</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">3.4 Go的http包详解</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#34-gohttp">3.4 Go的http包详解</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#conngoroutine">Conn的goroutine</a></li>
+        
+            <li><a class="toctree-l3" href="#servemux">ServeMux的自定义</a></li>
+        
+            <li><a class="toctree-l3" href="#go">Go代码的执行流程</a></li>
+        
+            <li><a class="toctree-l3" href="#links">links</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.5/">3.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.0/">4 表单</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.1/">4.1 处理表单的输入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.2/">4.2 验证表单的输入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.3/">4.3 预防跨站脚本</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.4/">4.4 防止多次递交表单</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.5/">4.5 处理文件上传</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.6/">4.6 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.0/">5 访问数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.1/">5.1 database/sql接口</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.2/">5.2 使用MySQL数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.3/">5.3 使用SQLite数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.4/">5.4 使用PostgreSQL数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.5/">5.5 使用Beego orm库进行ORM开发</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.6/">5.6 NOSQL数据库操作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.7/">5.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.0/">6 session和数据存储</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.1/">6.1 session和cookie</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.2/">6.2 Go如何使用session</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.3/">6.3 session存储</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.4/">6.4 预防session劫持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.5/">6.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.0/">7 文本处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.1/">7.1 XML处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.2/">7.2 JSON处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.3/">7.3 正则处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.4/">7.4 模板处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.5/">7.5 文件操作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.6/">7.6 字符串处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.7/">7.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.0/">8 Web服务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.1/">8.1 Socket编程</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.2/">8.2 WebSocket</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.3/">8.3 REST</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.4/">8.4 RPC</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.5/">8.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.0/">9 安全与加密</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.1/">9.1 预防CSRF攻击</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.2/">9.2 确保输入过滤</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.3/">9.3 避免XSS攻击</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.4/">9.4 避免SQL注入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.5/">9.5 存储密码</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.6/">9.6 加密和解密数据</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.7/">9.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.0/">10 国际化和本地化</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.1/">10.1 设置默认地区</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.2/">10.2 本地化资源</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.3/">10.3 国际化站点</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.4/">10.4 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.0/">11 错误处理，调试和测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.1/">11.1 错误处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.2/">11.2 使用GDB调试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.3/">11.3 Go怎么写测试用例</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.4/">11.4 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.0/">12 部署与维护</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.1/">12.1 应用日志</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.2/">12.2 网站错误处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.3/">12.3 应用部署</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.4/">12.4 备份和恢复</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.5/">12.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.0/">13 如何设计一个Web框架</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.1/">13.1 项目规划</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.2/">13.2 自定义路由器设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.3/">13.3 controller设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.4/">13.4 日志和配置设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.5/">13.5 实现博客的增删改</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.6/">13.6 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.0/">14 扩展Web框架</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.1/">14.1 静态文件支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.2/">14.2 Session支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.3/">14.3 表单及验证支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.4/">14.4 用户认证</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.5/">14.5 多语言支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.6/">14.6 pprof支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.7/">14.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preface/">0.0目录</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ref/">附录A 参考资料</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>3.4 Go的http包详解</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="34-gohttp">3.4 Go的http包详解</h1>
+<p>前面小节介绍了Go怎么样实现了Web工作模式的一个流程，这一小节，我们将详细地解剖一下http包，看它到底是怎样实现整个过程的。</p>
+<p>Go的http有两个核心功能：Conn、ServeMux</p>
+<h2 id="conngoroutine">Conn的goroutine</h2>
+<p>与我们一般编写的http服务器不同, Go为了实现高并发和高性能, 使用了goroutines来处理Conn的读写事件, 这样每个请求都能保持独立，相互不会阻塞，可以高效的响应网络事件。这是Go高效的保证。</p>
+<p>Go在等待客户端请求里面是这样写的：</p>
+<pre><code class="Go">
+c, err := srv.newConn(rw)
+if err != nil {
+    continue
+}
+go c.serve()
+
+</code></pre>
+
+<p>这里我们可以看到客户端的每次请求都会创建一个Conn，这个Conn里面保存了该次请求的信息，然后再传递到对应的handler，该handler中便可以读取到相应的header信息，这样保证了每个请求的独立性。</p>
+<h2 id="servemux">ServeMux的自定义</h2>
+<p>我们前面小节讲述conn.server的时候，其实内部是调用了http包默认的路由器，通过路由器把本次请求的信息传递到了后端的处理函数。那么这个路由器是怎么实现的呢？</p>
+<p>它的结构如下：</p>
+<pre><code class="Go">
+type ServeMux struct {
+    mu sync.RWMutex   //锁，由于请求涉及到并发处理，因此这里需要一个锁机制
+    m  map[string]muxEntry  // 路由规则，一个string对应一个mux实体，这里的string就是注册的路由表达式
+    hosts bool // 是否在任意的规则中带有host信息
+}
+
+</code></pre>
+
+<p>下面看一下muxEntry</p>
+<pre><code class="Go">
+type muxEntry struct {
+    explicit bool   // 是否精确匹配
+    h        Handler // 这个路由表达式对应哪个handler
+    pattern  string  //匹配字符串
+}
+
+</code></pre>
+
+<p>接着看一下Handler的定义</p>
+<pre><code class="Go">
+type Handler interface {
+    ServeHTTP(ResponseWriter, *Request)  // 路由实现器
+}
+
+</code></pre>
+
+<p>Handler是一个接口，但是前一小节中的<code>sayhelloName</code>函数并没有实现ServeHTTP这个接口，为什么能添加呢？原来在http包里面还定义了一个类型<code>HandlerFunc</code>,我们定义的函数<code>sayhelloName</code>就是这个HandlerFunc调用之后的结果，这个类型默认就实现了ServeHTTP这个接口，即我们调用了HandlerFunc(f),强制类型转换f成为HandlerFunc类型，这样f就拥有了ServeHTTP方法。</p>
+<pre><code class="Go">
+type HandlerFunc func(ResponseWriter, *Request)
+
+// ServeHTTP calls f(w, r).
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request) {
+    f(w, r)
+}
+</code></pre>
+
+<p>路由器里面存储好了相应的路由规则之后，那么具体的请求又是怎么分发的呢？请看下面的代码，默认的路由器实现了<code>ServeHTTP</code>：</p>
+<pre><code class="Go">
+func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request) {
+    if r.RequestURI == &quot;*&quot; {
+        w.Header().Set(&quot;Connection&quot;, &quot;close&quot;)
+        w.WriteHeader(StatusBadRequest)
+        return
+    }
+    h, _ := mux.Handler(r)
+    h.ServeHTTP(w, r)
+}
+</code></pre>
+
+<p>如上所示路由器接收到请求之后，如果是<code>*</code>那么关闭链接，不然调用<code>mux.Handler(r)</code>返回对应设置路由的处理Handler，然后执行<code>h.ServeHTTP(w, r)</code></p>
+<p>也就是调用对应路由的handler的ServerHTTP接口，那么mux.Handler(r)怎么处理的呢？</p>
+<pre><code class="Go">
+func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string) {
+    if r.Method != &quot;CONNECT&quot; {
+        if p := cleanPath(r.URL.Path); p != r.URL.Path {
+            _, pattern = mux.handler(r.Host, p)
+            return RedirectHandler(p, StatusMovedPermanently), pattern
+        }
+    }   
+    return mux.handler(r.Host, r.URL.Path)
+}
+
+func (mux *ServeMux) handler(host, path string) (h Handler, pattern string) {
+    mux.mu.RLock()
+    defer mux.mu.RUnlock()
+
+    // Host-specific pattern takes precedence over generic ones
+    if mux.hosts {
+        h, pattern = mux.match(host + path)
+    }
+    if h == nil {
+        h, pattern = mux.match(path)
+    }
+    if h == nil {
+        h, pattern = NotFoundHandler(), &quot;&quot;
+    }
+    return
+}
+</code></pre>
+
+<p>原来他是根据用户请求的URL和路由器里面存储的map去匹配的，当匹配到之后返回存储的handler，调用这个handler的ServeHTTP接口就可以执行到相应的函数了。</p>
+<p>通过上面这个介绍，我们了解了整个路由过程，Go其实支持外部实现的路由器 <code>ListenAndServe</code>的第二个参数就是用以配置外部路由器的，它是一个Handler接口，即外部路由器只要实现了Handler接口就可以,我们可以在自己实现的路由器的ServeHTTP里面实现自定义路由功能。</p>
+<p>如下代码所示，我们自己实现了一个简易的路由器</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+)
+
+type MyMux struct {
+}
+
+func (p *MyMux) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    if r.URL.Path == &quot;/&quot; {
+        sayhelloName(w, r)
+        return
+    }
+    http.NotFound(w, r)
+    return
+}
+
+func sayhelloName(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, &quot;Hello myroute!&quot;)
+}
+
+func main() {
+    mux := &amp;MyMux{}
+    http.ListenAndServe(&quot;:9090&quot;, mux)
+}
+</code></pre>
+
+<h2 id="go">Go代码的执行流程</h2>
+<p>通过对http包的分析之后，现在让我们来梳理一下整个的代码执行过程。</p>
+<ul>
+<li>
+<p>首先调用Http.HandleFunc</p>
+<p>按顺序做了几件事：</p>
+<p>1 调用了DefaultServeMux的HandleFunc</p>
+<p>2 调用了DefaultServeMux的Handle</p>
+<p>3 往DefaultServeMux的map[string]muxEntry中增加对应的handler和路由规则</p>
+</li>
+<li>
+<p>其次调用http.ListenAndServe(":9090", nil)</p>
+<p>按顺序做了几件事情：</p>
+<p>1 实例化Server</p>
+<p>2 调用Server的ListenAndServe()</p>
+<p>3 调用net.Listen("tcp", addr)监听端口</p>
+<p>4 启动一个for循环，在循环体中Accept请求</p>
+<p>5 对每个请求实例化一个Conn，并且开启一个goroutine为这个请求进行服务go c.serve()</p>
+<p>6 读取每个请求的内容w, err := c.readRequest()</p>
+<p>7 判断handler是否为空，如果没有设置handler（这个例子就没有设置handler），handler就设置为DefaultServeMux</p>
+<p>8 调用handler的ServeHttp</p>
+<p>9 在这个例子中，下面就进入到DefaultServeMux.ServeHttp</p>
+<p>10 根据request选择handler，并且进入到这个handler的ServeHTTP</p>
+<pre><code>mux.handler(r).ServeHTTP(w, r)
+</code></pre>
+<p>11 选择handler：</p>
+<p>A 判断是否有路由能满足这个request（循环遍历ServeMux的muxEntry）</p>
+<p>B 如果有路由满足，调用这个路由handler的ServeHTTP</p>
+<p>C 如果没有路由满足，调用NotFoundHandler的ServeHTTP</p>
+</li>
+</ul>
+<h2 id="links">links</h2>
+<ul>
+<li><a href="../preface/">目录</a></li>
+<li>上一节: <a href="../03.3/">Go如何使得web工作</a></li>
+<li>下一节: <a href="../03.5/">小结</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../03.5/" class="btn btn-neutral float-right" title="3.5 小结">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../03.3/" class="btn btn-neutral" title="3.3 Go如何使得Web工作"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../03.3/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../03.5/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

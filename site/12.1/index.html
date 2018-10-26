@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>12.1 应用日志 - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "12.1 \u5e94\u7528\u65e5\u5fd7";
+    var mkdocs_page_input_path = "12.1.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">0.0目录</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.0/">1.0 GO环境配置</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.1/">1.1安装 Go</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.2/">1.2 GOPATH与工作空间</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.3/">1.3 Go 命令</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.4/">1.4 Go开发工具</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.5/">1.5 总结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.0/">2 Go语言基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.1/">2.1 你好，Go</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.2/">2.2 Go基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.3/">2.3 流程和函数</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.4/">2.4 struct类型</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.5/">2.5 面向对象</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.6/">2.6 interface</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.7/">2.7 并发</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.8/">2.8 总结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.0/">3 Web基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.1/">3.1 Web工作方式</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.2/">3.2 Go搭建一个Web服务器</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.3/">3.3 Go如何使得Web工作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.4/">3.4 Go的http包详解</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.5/">3.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.0/">4 表单</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.1/">4.1 处理表单的输入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.2/">4.2 验证表单的输入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.3/">4.3 预防跨站脚本</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.4/">4.4 防止多次递交表单</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.5/">4.5 处理文件上传</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.6/">4.6 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.0/">5 访问数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.1/">5.1 database/sql接口</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.2/">5.2 使用MySQL数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.3/">5.3 使用SQLite数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.4/">5.4 使用PostgreSQL数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.5/">5.5 使用Beego orm库进行ORM开发</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.6/">5.6 NOSQL数据库操作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.7/">5.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.0/">6 session和数据存储</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.1/">6.1 session和cookie</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.2/">6.2 Go如何使用session</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.3/">6.3 session存储</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.4/">6.4 预防session劫持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.5/">6.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.0/">7 文本处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.1/">7.1 XML处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.2/">7.2 JSON处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.3/">7.3 正则处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.4/">7.4 模板处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.5/">7.5 文件操作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.6/">7.6 字符串处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.7/">7.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.0/">8 Web服务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.1/">8.1 Socket编程</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.2/">8.2 WebSocket</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.3/">8.3 REST</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.4/">8.4 RPC</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.5/">8.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.0/">9 安全与加密</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.1/">9.1 预防CSRF攻击</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.2/">9.2 确保输入过滤</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.3/">9.3 避免XSS攻击</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.4/">9.4 避免SQL注入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.5/">9.5 存储密码</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.6/">9.6 加密和解密数据</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.7/">9.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.0/">10 国际化和本地化</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.1/">10.1 设置默认地区</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.2/">10.2 本地化资源</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.3/">10.3 国际化站点</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.4/">10.4 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.0/">11 错误处理，调试和测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.1/">11.1 错误处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.2/">11.2 使用GDB调试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.3/">11.3 Go怎么写测试用例</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.4/">11.4 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.0/">12 部署与维护</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">12.1 应用日志</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#121">12.1 应用日志</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#logrus">logrus介绍</a></li>
+        
+            <li><a class="toctree-l3" href="#seelog">seelog介绍</a></li>
+        
+            <li><a class="toctree-l3" href="#_1">发生错误发送邮件</a></li>
+        
+            <li><a class="toctree-l3" href="#_2">使用应用日志</a></li>
+        
+            <li><a class="toctree-l3" href="#_3">小结</a></li>
+        
+            <li><a class="toctree-l3" href="#links">links</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.2/">12.2 网站错误处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.3/">12.3 应用部署</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.4/">12.4 备份和恢复</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.5/">12.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.0/">13 如何设计一个Web框架</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.1/">13.1 项目规划</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.2/">13.2 自定义路由器设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.3/">13.3 controller设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.4/">13.4 日志和配置设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.5/">13.5 实现博客的增删改</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.6/">13.6 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.0/">14 扩展Web框架</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.1/">14.1 静态文件支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.2/">14.2 Session支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.3/">14.3 表单及验证支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.4/">14.4 用户认证</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.5/">14.5 多语言支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.6/">14.6 pprof支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.7/">14.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preface/">0.0目录</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ref/">附录A 参考资料</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>12.1 应用日志</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="121">12.1 应用日志</h1>
+<p>我们期望开发的Web应用程序能够把整个程序运行过程中出现的各种事件一一记录下来，Go语言中提供了一个简易的log包，我们使用该包可以方便的实现日志记录的功能，这些日志都是基于fmt包的打印再结合panic之类的函数来进行一般的打印、抛出错误处理。Go目前标准包只是包含了简单的功能，如果我们想把我们的应用日志保存到文件，然后又能够结合日志实现很多复杂的功能（编写过Java或者C++的读者应该都使用过log4j和log4cpp之类的日志工具），可以使用第三方开发的日志系统:<a href="https://github.com/sirupsen/logrus">logrus</a>和<a href="https://github.com/cihub/seelog">seelog</a>，它们实现了很强大的日志功能，可以结合自己项目选择。接下来我们介绍如何通过该日志系统来实现我们应用的日志功能。</p>
+<h2 id="logrus">logrus介绍</h2>
+<p>logrus是用Go语言实现的一个日志系统，与标准库log完全兼容并且核心API很稳定,是Go语言目前最活跃的日志库</p>
+<p>首先安装logrus</p>
+<pre><code class="Go">
+go get -u github.com/sirupsen/logrus
+
+</code></pre>
+
+<p>简单例子:</p>
+<pre><code class="Go">
+package main
+
+import (
+    log &quot;github.com/Sirupsen/logrus&quot;
+)
+
+func main() {
+log.WithFields(log.Fields{
+    &quot;animal&quot;: &quot;walrus&quot;,
+}).Info(&quot;A walrus appears&quot;)
+}
+</code></pre>
+
+<h3 id="logrus_1">基于logrus的自定义日志处理</h3>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;os&quot;
+
+    log &quot;github.com/Sirupsen/logrus&quot;
+)
+
+func init() {
+    // 日志格式化为JSON而不是默认的ASCII
+    log.SetFormatter(&amp;log.JSONFormatter{})
+
+    // 输出stdout而不是默认的stderr，也可以是一个文件
+    log.SetOutput(os.Stdout)
+
+    // 只记录严重或以上警告
+    log.SetLevel(log.WarnLevel)
+}
+
+func main() {
+    log.WithFields(log.Fields{
+        &quot;animal&quot;: &quot;walrus&quot;,
+        &quot;size&quot;:   10,
+    }).Info(&quot;A group of walrus emerges from the ocean&quot;)
+
+    log.WithFields(log.Fields{
+        &quot;omg&quot;:    true,
+        &quot;number&quot;: 122,
+    }).Warn(&quot;The group's number increased tremendously!&quot;)
+
+    log.WithFields(log.Fields{
+        &quot;omg&quot;:    true,
+        &quot;number&quot;: 100,
+    }).Fatal(&quot;The ice breaks!&quot;)
+
+    // 通过日志语句重用字段
+    // logrus.Entry返回自WithFields()
+    contextLogger := log.WithFields(log.Fields{
+        &quot;common&quot;: &quot;this is a common field&quot;,
+        &quot;other&quot;:  &quot;I also should be logged always&quot;,
+    })
+
+    contextLogger.Info(&quot;I'll be logged with common and other field&quot;)
+    contextLogger.Info(&quot;Me too&quot;)
+}
+</code></pre>
+
+<h2 id="seelog">seelog介绍</h2>
+<p>seelog是用Go语言实现的一个日志系统，它提供了一些简单的函数来实现复杂的日志分配、过滤和格式化。主要有如下特性：</p>
+<ul>
+<li>XML的动态配置，可以不用重新编译程序而动态的加载配置信息</li>
+<li>支持热更新，能够动态改变配置而不需要重启应用</li>
+<li>支持多输出流，能够同时把日志输出到多种流中、例如文件流、网络流等</li>
+<li>
+<p>支持不同的日志输出</p>
+<ul>
+<li>命令行输出</li>
+<li>文件输出</li>
+<li>缓存输出</li>
+<li>支持log rotate</li>
+<li>SMTP邮件</li>
+</ul>
+</li>
+</ul>
+<p>上面只列举了部分特性，seelog是一个特别强大的日志处理系统，详细的内容请参看官方wiki。接下来我将简要介绍一下如何在项目中使用它：</p>
+<p>首先安装seelog</p>
+<pre><code class="Go">
+go get -u github.com/cihub/seelog
+
+</code></pre>
+
+<p>然后我们来看一个简单的例子：</p>
+<pre><code class="Go">
+package main
+
+import log &quot;github.com/cihub/seelog&quot;
+
+func main() {
+    defer log.Flush()
+    log.Info(&quot;Hello from Seelog!&quot;)
+}
+
+</code></pre>
+
+<p>编译后运行如果出现了<code>Hello from seelog</code>，说明seelog日志系统已经成功安装并且可以正常运行了。</p>
+<h3 id="seelog_1">基于seelog的自定义日志处理</h3>
+<p>seelog支持自定义日志处理，下面是我基于它自定义的日志处理包的部分内容：</p>
+<pre><code class="Go">
+package logs
+
+import (
+    // &quot;errors&quot;
+    &quot;fmt&quot;
+    // &quot;io&quot;
+
+    seelog &quot;github.com/cihub/seelog&quot;
+)
+
+var Logger seelog.LoggerInterface
+
+func loadAppConfig() {
+    appConfig := `
+&lt;seelog minlevel=&quot;warn&quot;&gt;
+    &lt;outputs formatid=&quot;common&quot;&gt;
+        &lt;rollingfile type=&quot;size&quot; filename=&quot;/data/logs/roll.log&quot; maxsize=&quot;100000&quot; maxrolls=&quot;5&quot;/&gt;
+        &lt;filter levels=&quot;critical&quot;&gt;
+            &lt;file path=&quot;/data/logs/critical.log&quot; formatid=&quot;critical&quot;/&gt;
+            &lt;smtp formatid=&quot;criticalemail&quot; senderaddress=&quot;astaxie@gmail.com&quot; sendername=&quot;ShortUrl API&quot; hostname=&quot;smtp.gmail.com&quot; hostport=&quot;587&quot; username=&quot;mailusername&quot; password=&quot;mailpassword&quot;&gt;
+                &lt;recipient address=&quot;xiemengjun@gmail.com&quot;/&gt;
+            &lt;/smtp&gt;
+        &lt;/filter&gt;
+    &lt;/outputs&gt;
+    &lt;formats&gt;
+        &lt;format id=&quot;common&quot; format=&quot;%Date/%Time [%LEV] %Msg%n&quot; /&gt;
+        &lt;format id=&quot;critical&quot; format=&quot;%File %FullPath %Func %Msg%n&quot; /&gt;
+        &lt;format id=&quot;criticalemail&quot; format=&quot;Critical error on our server!\n    %Time %Date %RelFile %Func %Msg \nSent by Seelog&quot;/&gt;
+    &lt;/formats&gt;
+&lt;/seelog&gt;
+`
+    logger, err := seelog.LoggerFromConfigAsBytes([]byte(appConfig))
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    UseLogger(logger)
+}
+
+func init() {
+    DisableLog()
+    loadAppConfig()
+}
+
+// DisableLog disables all library log output
+func DisableLog() {
+    Logger = seelog.Disabled
+}
+
+// UseLogger uses a specified seelog.LoggerInterface to output library log.
+// Use this func if you are using Seelog logging system in your app.
+func UseLogger(newLogger seelog.LoggerInterface) {
+    Logger = newLogger
+}
+</code></pre>
+
+<p>上面主要实现了三个函数，</p>
+<ul>
+<li>
+<p><code>DisableLog</code></p>
+<p>初始化全局变量Logger为seelog的禁用状态，主要为了防止Logger被多次初始化
+- <code>loadAppConfig</code></p>
+<p>根据配置文件初始化seelog的配置信息，这里我们把配置文件通过字符串读取设置好了，当然也可以通过读取XML文件。里面的配置说明如下：</p>
+<ul>
+<li>
+<p>seelog </p>
+<p>minlevel参数可选，如果被配置,高于或等于此级别的日志会被记录，同理maxlevel。
+    - outputs</p>
+<p>输出信息的目的地，这里分成了两份数据，一份记录到log rotate文件里面。另一份设置了filter，如果这个错误级别是critical，那么将发送报警邮件。</p>
+</li>
+<li>
+<p>formats</p>
+<p>定义了各种日志的格式</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>UseLogger</code></p>
+<p>设置当前的日志器为相应的日志处理</p>
+</li>
+</ul>
+<p>上面我们定义了一个自定义的日志处理包，下面就是使用示例：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;net/http&quot;
+    &quot;project/logs&quot;
+    &quot;project/configs&quot;
+    &quot;project/routes&quot;
+)
+
+func main() {
+    addr, _ := configs.MainConfig.String(&quot;server&quot;, &quot;addr&quot;)
+    logs.Logger.Info(&quot;Start server at:%v&quot;, addr)
+    err := http.ListenAndServe(addr, routes.NewMux())
+    logs.Logger.Critical(&quot;Server err:%v&quot;, err)
+}
+</code></pre>
+
+<h2 id="_1">发生错误发送邮件</h2>
+<p>上面的例子解释了如何设置发送邮件，我们通过如下的smtp配置用来发送邮件：</p>
+<pre><code class="html">
+&lt;smtp formatid=&quot;criticalemail&quot; senderaddress=&quot;astaxie@gmail.com&quot; sendername=&quot;ShortUrl API&quot; hostname=&quot;smtp.gmail.com&quot; hostport=&quot;587&quot; username=&quot;mailusername&quot; password=&quot;mailpassword&quot;&gt;
+    &lt;recipient address=&quot;xiemengjun@gmail.com&quot;/&gt;
+&lt;/smtp&gt;
+</code></pre>
+
+<p>邮件的格式通过criticalemail配置，然后通过其他的配置发送邮件服务器的配置，通过recipient配置接收邮件的用户，如果有多个用户可以再添加一行。</p>
+<p>要测试这个代码是否正常工作，可以在代码中增加类似下面的一个假消息。不过记住过后要把它删除，否则上线之后就会收到很多垃圾邮件。</p>
+<pre><code class="Go">
+logs.Logger.Critical(&quot;test Critical message&quot;)
+</code></pre>
+
+<p>现在，只要我们的应用在线上记录一个Critical的信息，你的邮箱就会收到一个Email，这样一旦线上的系统出现问题，你就能立马通过邮件获知，就能及时的进行处理。           </p>
+<h2 id="_2">使用应用日志</h2>
+<p>对于应用日志，每个人的应用场景可能会各不相同，有些人利用应用日志来做数据分析，有些人利用应用日志来做性能分析，有些人来做用户行为分析，还有些就是纯粹的记录，以方便应用出现问题的时候辅助查找问题。</p>
+<p>举一个例子，我们需要跟踪用户尝试登陆系统的操作。这里会把成功与不成功的尝试都记录下来。记录成功的使用"Info"日志级别，而不成功的使用"warn"级别。如果想查找所有不成功的登陆，我们可以利用linux的grep之类的命令工具，如下：</p>
+<pre><code class="Go">
+# cat /data/logs/roll.log | grep &quot;failed login&quot;
+2012-12-11 11:12:00 WARN : failed login attempt from 11.22.33.44 username password
+</code></pre>
+
+<p>通过这种方式我们就可以很方便的查找相应的信息，这样有利于我们针对应用日志做一些统计和分析。另外我们还需要考虑日志的大小，对于一个高流量的Web应用来说，日志的增长是相当可怕的，所以我们在seelog的配置文件里面设置了logrotate，这样就能保证日志文件不会因为不断变大而导致我们的磁盘空间不够引起问题。</p>
+<h2 id="_3">小结</h2>
+<p>通过上面对seelog系统及如何基于它进行自定义日志系统的学习，现在我们可以很轻松的随需构建一个合适的功能强大的日志处理系统了。日志处理系统为数据分析提供了可靠的数据源，比如通过对日志的分析，我们可以进一步优化系统，或者应用出现问题时方便查找定位问题，另外seelog也提供了日志分级功能，通过对minlevel的配置，我们可以很方便的设置测试或发布版本的输出消息级别。</p>
+<h2 id="links">links</h2>
+<ul>
+<li><a href="../preface/">目录</a></li>
+<li>上一章: <a href="../12.0/">部署与维护</a></li>
+<li>下一节: <a href="../12.2/">网站错误处理</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../12.2/" class="btn btn-neutral float-right" title="12.2 网站错误处理">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../12.0/" class="btn btn-neutral" title="12 部署与维护"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../12.0/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../12.2/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

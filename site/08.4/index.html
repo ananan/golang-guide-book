@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>8.4 RPC - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "8.4 RPC";
+    var mkdocs_page_input_path = "08.4.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">0.0目录</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.0/">1.0 GO环境配置</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.1/">1.1安装 Go</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.2/">1.2 GOPATH与工作空间</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.3/">1.3 Go 命令</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.4/">1.4 Go开发工具</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../01.5/">1.5 总结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.0/">2 Go语言基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.1/">2.1 你好，Go</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.2/">2.2 Go基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.3/">2.3 流程和函数</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.4/">2.4 struct类型</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.5/">2.5 面向对象</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.6/">2.6 interface</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.7/">2.7 并发</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../02.8/">2.8 总结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.0/">3 Web基础</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.1/">3.1 Web工作方式</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.2/">3.2 Go搭建一个Web服务器</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.3/">3.3 Go如何使得Web工作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.4/">3.4 Go的http包详解</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../03.5/">3.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.0/">4 表单</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.1/">4.1 处理表单的输入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.2/">4.2 验证表单的输入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.3/">4.3 预防跨站脚本</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.4/">4.4 防止多次递交表单</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.5/">4.5 处理文件上传</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../04.6/">4.6 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.0/">5 访问数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.1/">5.1 database/sql接口</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.2/">5.2 使用MySQL数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.3/">5.3 使用SQLite数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.4/">5.4 使用PostgreSQL数据库</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.5/">5.5 使用Beego orm库进行ORM开发</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.6/">5.6 NOSQL数据库操作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../05.7/">5.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.0/">6 session和数据存储</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.1/">6.1 session和cookie</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.2/">6.2 Go如何使用session</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.3/">6.3 session存储</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.4/">6.4 预防session劫持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../06.5/">6.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.0/">7 文本处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.1/">7.1 XML处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.2/">7.2 JSON处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.3/">7.3 正则处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.4/">7.4 模板处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.5/">7.5 文件操作</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.6/">7.6 字符串处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../07.7/">7.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.0/">8 Web服务</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.1/">8.1 Socket编程</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.2/">8.2 WebSocket</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.3/">8.3 REST</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">8.4 RPC</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#84-rpc">8.4 RPC</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#rpc">RPC工作原理</a></li>
+        
+            <li><a class="toctree-l3" href="#go-rpc">Go RPC</a></li>
+        
+            <li><a class="toctree-l3" href="#_1">总结</a></li>
+        
+            <li><a class="toctree-l3" href="#links">links</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../08.5/">8.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.0/">9 安全与加密</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.1/">9.1 预防CSRF攻击</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.2/">9.2 确保输入过滤</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.3/">9.3 避免XSS攻击</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.4/">9.4 避免SQL注入</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.5/">9.5 存储密码</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.6/">9.6 加密和解密数据</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../09.7/">9.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.0/">10 国际化和本地化</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.1/">10.1 设置默认地区</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.2/">10.2 本地化资源</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.3/">10.3 国际化站点</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.4/">10.4 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.0/">11 错误处理，调试和测试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.1/">11.1 错误处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.2/">11.2 使用GDB调试</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.3/">11.3 Go怎么写测试用例</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.4/">11.4 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.0/">12 部署与维护</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.1/">12.1 应用日志</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.2/">12.2 网站错误处理</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.3/">12.3 应用部署</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.4/">12.4 备份和恢复</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.5/">12.5 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.0/">13 如何设计一个Web框架</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.1/">13.1 项目规划</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.2/">13.2 自定义路由器设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.3/">13.3 controller设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.4/">13.4 日志和配置设计</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.5/">13.5 实现博客的增删改</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.6/">13.6 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.0/">14 扩展Web框架</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.1/">14.1 静态文件支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.2/">14.2 Session支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.3/">14.3 表单及验证支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.4/">14.4 用户认证</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.5/">14.5 多语言支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.6/">14.6 pprof支持</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.7/">14.7 小结</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preface/">0.0目录</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../ref/">附录A 参考资料</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>8.4 RPC</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="84-rpc">8.4 RPC</h1>
+<p>前面几个小节我们介绍了如何基于Socket和HTTP来编写网络应用，通过学习我们了解了Socket和HTTP采用的是类似"信息交换"模式，即客户端发送一条信息到服务端，然后(一般来说)服务器端都会返回一定的信息以表示响应。客户端和服务端之间约定了交互信息的格式，以便双方都能够解析交互所产生的信息。但是很多独立的应用并没有采用这种模式，而是采用类似常规的函数调用的方式来完成想要的功能。</p>
+<p>RPC就是想实现函数调用模式的网络化。客户端就像调用本地函数一样，然后客户端把这些参数打包之后通过网络传递到服务端，服务端解包到处理过程中执行，然后执行的结果反馈给客户端。</p>
+<p>RPC（Remote Procedure Call Protocol）——远程过程调用协议，是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。它假定某些传输协议的存在，如TCP或UDP，以便为通信程序之间携带信息数据。通过它可以使函数调用模式网络化。在OSI网络通信模型中，RPC跨越了传输层和应用层。RPC使得开发包括网络分布式多程序在内的应用程序更加容易。</p>
+<h2 id="rpc">RPC工作原理</h2>
+<p><img alt="" src="../images/8.4.rpc.png?raw=true" /></p>
+<p>图8.8 RPC工作流程图</p>
+<p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
+<ul>
+<li>1.调用客户端句柄；执行传送参数</li>
+<li>2.调用本地系统内核发送网络消息</li>
+<li>3.消息传送到远程主机</li>
+<li>4.服务器句柄得到消息并取得参数</li>
+<li>5.执行远程过程</li>
+<li>6.执行的过程将结果返回服务器句柄</li>
+<li>7.服务器句柄返回结果，调用远程系统内核</li>
+<li>8.消息传回本地主机</li>
+<li>9.客户句柄由内核接收消息</li>
+<li>10.客户接收句柄返回的数据</li>
+</ul>
+<h2 id="go-rpc">Go RPC</h2>
+<p>Go标准包中已经提供了对RPC的支持，而且支持三个级别的RPC：TCP、HTTP、JSONRPC。但Go的RPC包是独一无二的RPC，它和传统的RPC系统不同，它只支持Go开发的服务器与客户端之间的交互，因为在内部，它们采用了Gob来编码。</p>
+<p>Go RPC的函数只有符合下面的条件才能被远程访问，不然会被忽略，详细的要求如下：</p>
+<ul>
+<li>函数必须是导出的(首字母大写)</li>
+<li>必须有两个导出类型的参数，</li>
+<li>第一个参数是接收的参数，第二个参数是返回给客户端的参数，第二个参数必须是指针类型的</li>
+<li>函数还要有一个返回值error</li>
+</ul>
+<p>举个例子，正确的RPC函数格式如下：</p>
+<pre><code>func (t *T) MethodName(argType T1, replyType *T2) error
+</code></pre>
+<p>T、T1和T2类型必须能被<code>encoding/gob</code>包编解码。</p>
+<p>任何的RPC都需要通过网络来传递数据，Go RPC可以利用HTTP和TCP来传递数据，利用HTTP的好处是可以直接复用<code>net/http</code>里面的一些函数。详细的例子请看下面的实现</p>
+<h3 id="http-rpc">HTTP RPC</h3>
+<p>http的服务端代码实现如下：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;errors&quot;
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+    &quot;net/rpc&quot;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+type Arith int
+
+func (t *Arith) Multiply(args *Args, reply *int) error {
+    *reply = args.A * args.B
+    return nil
+}
+
+func (t *Arith) Divide(args *Args, quo *Quotient) error {
+    if args.B == 0 {
+        return errors.New(&quot;divide by zero&quot;)
+    }
+    quo.Quo = args.A / args.B
+    quo.Rem = args.A % args.B
+    return nil
+}
+
+func main() {
+
+    arith := new(Arith)
+    rpc.Register(arith)
+    rpc.HandleHTTP()
+
+    err := http.ListenAndServe(&quot;:1234&quot;, nil)
+    if err != nil {
+        fmt.Println(err.Error())
+    }
+}
+
+</code></pre>
+
+<p>通过上面的例子可以看到，我们注册了一个Arith的RPC服务，然后通过<code>rpc.HandleHTTP</code>函数把该服务注册到了HTTP协议上，然后我们就可以利用http的方式来传递数据了。</p>
+<p>请看下面的客户端代码：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;fmt&quot;
+    &quot;log&quot;
+    &quot;net/rpc&quot;
+    &quot;os&quot;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println(&quot;Usage: &quot;, os.Args[0], &quot;server&quot;)
+        os.Exit(1)
+    }
+    serverAddress := os.Args[1]
+
+    client, err := rpc.DialHTTP(&quot;tcp&quot;, serverAddress+&quot;:1234&quot;)
+    if err != nil {
+        log.Fatal(&quot;dialing:&quot;, err)
+    }
+    // Synchronous call
+    args := Args{17, 8}
+    var reply int
+    err = client.Call(&quot;Arith.Multiply&quot;, args, &amp;reply)
+    if err != nil {
+        log.Fatal(&quot;arith error:&quot;, err)
+    }
+    fmt.Printf(&quot;Arith: %d*%d=%d\n&quot;, args.A, args.B, reply)
+
+    var quot Quotient
+    err = client.Call(&quot;Arith.Divide&quot;, args, &amp;quot)
+    if err != nil {
+        log.Fatal(&quot;arith error:&quot;, err)
+    }
+    fmt.Printf(&quot;Arith: %d/%d=%d remainder %d\n&quot;, args.A, args.B, quot.Quo, quot.Rem)
+
+}
+
+</code></pre>
+
+<p>我们把上面的服务端和客户端的代码分别编译，然后先把服务端开启，然后开启客户端，输入代码，就会输出如下信息：</p>
+<pre><code class="Go">
+$ ./http_c localhost
+Arith: 17*8=136
+Arith: 17/8=2 remainder 1
+
+</code></pre>
+
+<p>通过上面的调用可以看到参数和返回值是我们定义的struct类型，在服务端我们把它们当做调用函数的参数的类型，在客户端作为<code>client.Call</code>的第2，3两个参数的类型。客户端最重要的就是这个Call函数，它有3个参数，第1个要调用的函数的名字，第2个是要传递的参数，第3个要返回的参数(注意是指针类型)，通过上面的代码例子我们可以发现，使用Go的RPC实现相当的简单，方便。</p>
+<h3 id="tcp-rpc">TCP RPC</h3>
+<p>上面我们实现了基于HTTP协议的RPC，接下来我们要实现基于TCP协议的RPC，服务端的实现代码如下所示：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;errors&quot;
+    &quot;fmt&quot;
+    &quot;net&quot;
+    &quot;net/rpc&quot;
+    &quot;os&quot;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+type Arith int
+
+func (t *Arith) Multiply(args *Args, reply *int) error {
+    *reply = args.A * args.B
+    return nil
+}
+
+func (t *Arith) Divide(args *Args, quo *Quotient) error {
+    if args.B == 0 {
+        return errors.New(&quot;divide by zero&quot;)
+    }
+    quo.Quo = args.A / args.B
+    quo.Rem = args.A % args.B
+    return nil
+}
+
+func main() {
+
+    arith := new(Arith)
+    rpc.Register(arith)
+
+    tcpAddr, err := net.ResolveTCPAddr(&quot;tcp&quot;, &quot;:1234&quot;)
+    checkError(err)
+
+    listener, err := net.ListenTCP(&quot;tcp&quot;, tcpAddr)
+    checkError(err)
+
+    for {
+        conn, err := listener.Accept()
+        if err != nil {
+            continue
+        }
+        rpc.ServeConn(conn)
+    }
+
+}
+
+func checkError(err error) {
+    if err != nil {
+        fmt.Println(&quot;Fatal error &quot;, err.Error())
+        os.Exit(1)
+    }
+}
+
+</code></pre>
+
+<p>上面这个代码和http的服务器相比，不同在于:在此处我们采用了TCP协议，然后需要自己控制连接，当有客户端连接上来后，我们需要把这个连接交给rpc来处理。</p>
+<p>如果你留心了，你会发现这它是一个阻塞型的单用户的程序，如果想要实现多并发，那么可以使用goroutine来实现，我们前面在socket小节的时候已经介绍过如何处理goroutine。
+下面展现了TCP实现的RPC客户端：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;fmt&quot;
+    &quot;log&quot;
+    &quot;net/rpc&quot;
+    &quot;os&quot;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println(&quot;Usage: &quot;, os.Args[0], &quot;server:port&quot;)
+        os.Exit(1)
+    }
+    service := os.Args[1]
+
+    client, err := rpc.Dial(&quot;tcp&quot;, service)
+    if err != nil {
+        log.Fatal(&quot;dialing:&quot;, err)
+    }
+    // Synchronous call
+    args := Args{17, 8}
+    var reply int
+    err = client.Call(&quot;Arith.Multiply&quot;, args, &amp;reply)
+    if err != nil {
+        log.Fatal(&quot;arith error:&quot;, err)
+    }
+    fmt.Printf(&quot;Arith: %d*%d=%d\n&quot;, args.A, args.B, reply)
+
+    var quot Quotient
+    err = client.Call(&quot;Arith.Divide&quot;, args, &amp;quot)
+    if err != nil {
+        log.Fatal(&quot;arith error:&quot;, err)
+    }
+    fmt.Printf(&quot;Arith: %d/%d=%d remainder %d\n&quot;, args.A, args.B, quot.Quo, quot.Rem)
+
+}
+
+</code></pre>
+
+<p>这个客户端代码和http的客户端代码对比，唯一的区别一个是DialHTTP，一个是Dial(tcp)，其他处理一模一样。</p>
+<h3 id="json-rpc">JSON RPC</h3>
+<p>JSON RPC是数据编码采用了JSON，而不是gob编码，其他和上面介绍的RPC概念一模一样，下面我们来演示一下，如何使用Go提供的json-rpc标准包，请看服务端代码的实现：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;errors&quot;
+    &quot;fmt&quot;
+    &quot;net&quot;
+    &quot;net/rpc&quot;
+    &quot;net/rpc/jsonrpc&quot;
+    &quot;os&quot;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+type Arith int
+
+func (t *Arith) Multiply(args *Args, reply *int) error {
+    *reply = args.A * args.B
+    return nil
+}
+
+func (t *Arith) Divide(args *Args, quo *Quotient) error {
+    if args.B == 0 {
+        return errors.New(&quot;divide by zero&quot;)
+    }
+    quo.Quo = args.A / args.B
+    quo.Rem = args.A % args.B
+    return nil
+}
+
+func main() {
+
+    arith := new(Arith)
+    rpc.Register(arith)
+
+    tcpAddr, err := net.ResolveTCPAddr(&quot;tcp&quot;, &quot;:1234&quot;)
+    checkError(err)
+
+    listener, err := net.ListenTCP(&quot;tcp&quot;, tcpAddr)
+    checkError(err)
+
+    for {
+        conn, err := listener.Accept()
+        if err != nil {
+            continue
+        }
+        jsonrpc.ServeConn(conn)
+    }
+
+}
+
+func checkError(err error) {
+    if err != nil {
+        fmt.Println(&quot;Fatal error &quot;, err.Error())
+        os.Exit(1)
+    }
+}
+
+</code></pre>
+
+<p>通过示例我们可以看出 json-rpc是基于TCP协议实现的，目前它还不支持HTTP方式。</p>
+<p>请看客户端的实现代码：</p>
+<pre><code class="Go">
+package main
+
+import (
+    &quot;fmt&quot;
+    &quot;log&quot;
+    &quot;net/rpc/jsonrpc&quot;
+    &quot;os&quot;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println(&quot;Usage: &quot;, os.Args[0], &quot;server:port&quot;)
+        log.Fatal(1)
+    }
+    service := os.Args[1]
+
+    client, err := jsonrpc.Dial(&quot;tcp&quot;, service)
+    if err != nil {
+        log.Fatal(&quot;dialing:&quot;, err)
+    }
+    // Synchronous call
+    args := Args{17, 8}
+    var reply int
+    err = client.Call(&quot;Arith.Multiply&quot;, args, &amp;reply)
+    if err != nil {
+        log.Fatal(&quot;arith error:&quot;, err)
+    }
+    fmt.Printf(&quot;Arith: %d*%d=%d\n&quot;, args.A, args.B, reply)
+
+    var quot Quotient
+    err = client.Call(&quot;Arith.Divide&quot;, args, &amp;quot)
+    if err != nil {
+        log.Fatal(&quot;arith error:&quot;, err)
+    }
+    fmt.Printf(&quot;Arith: %d/%d=%d remainder %d\n&quot;, args.A, args.B, quot.Quo, quot.Rem)
+
+}
+
+</code></pre>
+
+<h2 id="_1">总结</h2>
+<p>Go已经提供了对RPC的良好支持，通过上面HTTP、TCP、JSON RPC的实现,我们就可以很方便的开发很多分布式的Web应用，我想作为读者的你已经领会到这一点。但遗憾的是目前Go尚未提供对SOAP RPC的支持，欣慰的是现在已经有第三方的开源实现了。</p>
+<h2 id="links">links</h2>
+<ul>
+<li><a href="../preface/">目录</a></li>
+<li>上一节: <a href="../08.3/">REST</a></li>
+<li>下一节: <a href="../08.5/">小结</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../08.5/" class="btn btn-neutral float-right" title="8.5 小结">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../08.3/" class="btn btn-neutral" title="8.3 REST"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../08.3/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../08.5/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
